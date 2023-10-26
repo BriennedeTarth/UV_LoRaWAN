@@ -26,9 +26,9 @@ function conectar()
     $mensaje = $mqtt->subscribeAndWaitForMessage('demo', 0);
     $mqtt->close();
     $datos = separarmensaje($mensaje);
-    if (is_int($datos["UV"])){
+    //if ($datos["UV"]!=null){
       $respuesta = $con->insertardatos($datos);
-    }
+    //}
     
     if ($respuesta->getInsertedCount() > 0) {
       echo "Datos correctamente almacenados\n";
@@ -64,8 +64,6 @@ $data = json_decode($mensaje);
   
   $datos_separados = array(
     "device_id" => $data->device_id,
-   // "temperature" =>$temperatura,
-    //"humidity"=>$humedad,
     "UV"=>$UVlevel[1],
     "date" => $date,
     "time" => $time
