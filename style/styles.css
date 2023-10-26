@@ -1,0 +1,578 @@
+/*Configuraciones generales*/
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+/*Header*/
+.header {
+    background-image: url("../Img/fondo.jpg");
+    background-size: cover;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 85px;
+    padding: 3%;
+}
+
+/*Header logo*/
+
+.header .logo {
+    cursor: pointer;
+}
+
+.header .logo img {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover {
+    transform: scale(1.2);
+}
+
+/*Header titulo*/
+.header h1 a {
+    text-decoration: none;
+    color: black;
+    font-size: clamp(20px, 2vw, 100px);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-left: 25%;
+    transition: all 0.3s;
+}
+
+.header h1 a:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+/*Header menú*/
+.header .menu-cont {
+    width: 100%;
+    padding: 15%;
+}
+
+.header .menu-cont .menu {
+    list-style: none;
+}
+
+.header .menu-cont .menu li {
+    display: inline-block;
+    padding: 0 20px;
+    transition: all 0.3s;
+}
+
+.header .menu-cont .menu li:hover {
+    transform: scale(1.1);
+}
+
+.header .menu-cont .menu li a {
+    font-size: clamp(20px, 2vw, 100px);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header .menu-cont .menu li a:hover {
+    color: white;
+}
+
+.header .menu-cont .menu li a.active {
+    text-decoration: underline;
+}
+
+.header-img {
+    height: 18px;
+    width: auto;
+    display: none;
+}
+
+/*Menu toggle*/
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle-close {
+    display: none;
+}
+
+/*Footer*/
+.footer {
+    background-image: url("../Img/fondo.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.footer .footer-cont {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+.footer .footer-cont .lines {
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+.footer .footer-cont .lines img {
+    width: 100%;
+    height: 15px;
+}
+
+.footer .footer-cont .social-medias {
+    flex-grow: 1;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer .footer-cont .social-medias a {
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+.footer .footer-cont .social-medias a:hover {
+    transform: scale(1.2);
+}
+
+.footer .footer-cont .social-medias a img {
+    height: 40px;
+    width: auto;
+}
+
+.copyrigth {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.copyrigth h2 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/*Body*/
+body {
+    background-image: url("../Img/fondo_body.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 200px;
+}
+
+/*Modulos*/
+.module-cont {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1.5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-module {
+    position: relative;
+    width: 90%;
+    height: 600px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px #ddd;
+    overflow: hidden;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 4%;
+    cursor: pointer;
+}
+
+.modulebackm {
+    position: absolute;
+    width: 100%;
+    height: 700px;
+    background-image: url("../Img/Module/mañana.jpg");
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.modulebackt {
+    position: absolute;
+    width: 400px;
+    height: 700px;
+    background-image: url("../Img/Module/tarde.jpg");
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.modulebackn {
+    position: absolute;
+    width: 400px;
+    height: 700px;
+    background-image: url("../Img/Module/noche.jpg");
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.content h2 {
+    font-size: clamp(15px, 3vw, 40px);
+    text-align: center;
+    margin-top: 15%;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.content h3 {
+    font-size: clamp(15px, 3vw, 35px);
+    text-align: center;
+    margin-top: 4%;
+}
+
+.content h4 {
+    padding-top: 6%;
+    font-size: clamp(15px, 6vw, 80px);
+    text-align: center;
+    font-weight: bold;
+}
+
+.content p {
+    padding-top: 10%;
+    text-align: center;
+    font-size: clamp(15px, 6vw, 100px);
+    font-weight: bold;
+}
+
+/*Contactanos*/
+.form-contact {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 40%;
+    height: 700px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px #ddd;
+    overflow: hidden;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 7%;
+    cursor: pointer;
+    position: relative;
+}
+
+.form-contact h2 {
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-contact label {
+    font-size: clamp(20px, 3vw, 35px);
+    font-weight: bold;
+    padding-left: 10%;
+    margin-top: 2%;
+}
+
+.form-contact input {
+    width: 80%;
+    height: 40px;
+    margin-top: 2%;
+    margin-left: 10%;
+    padding: 10px;
+    font-size: clamp(15px, 2vw, 20px);
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-contact input:hover {
+    border: 2px solid blue;
+}
+
+.form-contact textarea {
+    width: 80%;
+    height: 240px;
+    margin-top: 2%;
+    margin-left: 10%;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: clamp(15px, 2vw, 20px);
+    resize: none;
+}
+
+.form-contact textarea:hover {
+    border: 2px solid blue;
+}
+
+.form-contact .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-contact button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 10px;
+    background-color: #fbcbe1;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.form-contact button:hover {
+    transform: scale(1.2);
+}
+
+.contact img {
+    float: right;
+    width: 45%;
+    height: auto;
+    margin-top: 3%;
+    margin-right: 5%;
+    border-radius: 100%;
+}
+
+/*Graficas*/
+.containergraf {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 88%;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px #ddd;
+    overflow: hidden;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 7%;
+    cursor: pointer;
+}
+
+.containergraf a {
+    width: 10%;
+    height: 40px;
+    margin: 20px;
+    float: left;
+}
+
+.containergraf a img {
+    width: 80%;
+    height: auto;
+}
+
+.containergraf h2 {
+    margin-right: 8%;
+    margin-top: 2%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#graphics {
+    float: right;
+    width: 50%;
+    height: 300px;
+    margin: 5%;
+}
+
+/*Archivo calendario*/
+.calendar {
+    width: 300px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.month {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    font-weight: normal;
+}
+
+td {
+    text-align: center;
+    cursor: pointer;
+    padding: 8px;
+}
+
+td.selected {
+    background-color: #aaf;
+}
+
+.prev,
+.next {
+    display: inline-block;
+    padding: 5px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+/*Calendario Elemento*/
+.calendario {
+    float: left;
+    width: 30%;
+    height: 600px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+/*Acerca de nosotors*/
+.about-us {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 88%;
+    min-height: 700px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px #ddd;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 7%;
+    text-align: center;
+}
+
+.about-us h2 {
+    margin-top: 20px;
+    font-size: clamp(15px, 3vw, 40px);
+    font-weight: bold;
+    text-align: center;
+}
+
+.logo-sm img {
+    float: right;
+    width: 45%;
+    height: auto;
+    margin-top: 3%;
+    margin-right: 5%;
+    border-radius: 100%;
+}
+
+.mission {
+    width: 45%;
+    height: auto;
+}
+
+.mission:hover {
+    transition: all 0.5s;
+    transform: scale(1.08);
+}
+
+.mission h3 {
+    font-size: clamp(15px, 3vw, 25px);
+}
+
+.mission p {
+    padding-left: 20px;
+    font-size: clamp(10px, 3vw, 20px);
+    text-align: justify;
+    line-height: 150%;
+}
+
+.vision {
+    width: 45%;
+    height: auto;
+    padding-top: 20px;
+}
+
+.vision:hover {
+    transition: all 0.5s;
+    transform: scale(1.08);
+}
+
+.vision h3 {
+    font-size: clamp(15px, 3vw, 25px);
+}
+
+.vision p {
+    padding-left: 20px;
+    font-size: clamp(10px, 3vw, 20px);
+    text-align: justify;
+    line-height: 150%;
+}
+
+/*Página no encontrada*/
+.page-nf {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 88%;
+    min-height: 700px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px #ddd;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 7%;
+    text-align: center;
+}
+
+.page-nf h2 {
+    font-size: clamp(70px, 8vw, 150px);
+}
+
+.page-nf h3 {
+    font-size: clamp(25px, 5vw, 40px);
+}
+
+.page-nf p {
+    font-size: clamp(20px, 5vw, 30px);
+}
+
+.sad-face img {
+    margin-top: 5%;
+    width: 20%;
+}
+
+/*Exportar CSV*/
+.export-csv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 10px;
+    background-color: #fbcbe1;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 30%;
+    transition: all 0.3s;
+}
+
+.export-csv:hover{
+    transform: scale(1.2);
+}

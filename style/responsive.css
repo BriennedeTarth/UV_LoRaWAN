@@ -1,0 +1,226 @@
+@media (max-width: 420px) {
+
+    /*Header*/
+    .header {
+        display: flex;
+        align-items: center;
+        color: black;
+        height: 85px;
+        padding: 0 20px;
+        z-index: 1;
+    }
+
+    /* Estilo para el menú desplegable (sidebar) */
+    .menu-cont,
+    .menu {
+        display: none;
+    }
+
+    .menu-cont.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        z-index: 1;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .menu-toggle-close {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .menu.active {
+        display: block;
+        z-index: 1;
+    }
+
+    .header .menu-cont .menu li {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .header .menu-cont .menu li a {
+        padding: 10px 0;
+        color: white;
+    }
+
+    /*Logo y nombre del sitio*/
+    .header .logo {
+        margin-left: 20%;
+    }
+
+    .header h1 a {
+        margin-left: 10%;
+    }
+
+    .header h1 a:hover {
+        transform: scale(1.0);
+        color: white;
+    }
+
+    .header-img {
+        display: flex;
+        float: left;
+        margin-right: 5px;
+        margin-top: 4px;
+        z-index: 1;
+    }
+
+    /*Footer*/
+    .footer .footer-cont .lines {
+        display: none;
+    }
+
+    .footer .footer-cont .social-medias a img {
+        height: 30px;
+        width: auto;
+    }
+
+    .copyrigth {
+        padding-bottom: 15px;
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .copyrigth h2 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    /*Modulos*/
+    .module-cont {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1.5%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .form-module {
+        height: 500px;
+    }
+
+    .content h2 {
+        font-size: 40px;
+    }
+
+    .content h3 {
+        font-size: 30px;
+    }
+
+    .content h4 {
+        font-size: clamp(50px, 2vw, 90px);
+    }
+
+    .content p {
+        font-size: clamp(50px, 2vw, 90px);
+    }
+
+    /*Contactanos*/
+    .form-contact {
+        width: 80%;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-image {
+        order: 2;
+    }
+
+    .contact img {
+        width: 90%;
+    }
+
+    .form-contact h2 {
+        font-size: clamp(20px, 3vw, 40px);
+    }
+
+    .form-contact input {
+        font-size: clamp(13px, 2vw, 30px);
+    }
+
+    .form-contact label {
+        font-size: clamp(15px, 3vw, 35px);
+    }
+
+    .form-contact textarea {
+        font-size: clamp(15px, 2vw, 30px);
+    }
+
+    /*Graficas*/
+    .containergraf a {
+        width: 18%;
+    }
+
+    .containergraf h2 {
+        font-size: clamp(25px, 3vw, 40px);
+    }
+
+    #graphics {
+        width: 95%;
+        clear: both;
+    }
+
+    /*Calendario*/
+    .calendario {
+        clear: both;
+        width: 100%;
+        height: 310px;
+        margin-left: -0.5%;
+    }
+
+    /*About-us*/
+    .about-us {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mission {
+        margin-top: 2%;
+        width: 90%;
+        order: 1;
+    }
+
+    .vision {
+        margin-top: 2%;
+        width: 90%;
+        order: 2;
+    }
+
+    .logo-sm {
+        clear: both;
+        width: 100%;
+        order: 3;
+    }
+
+    .logo-sm img {
+        width: 90%;
+    }
+
+    .about-us h2 {
+        font-size: clamp(20px, 3vw, 40px);
+    }
+
+    /*Exportar CSV*/
+    .export-csv {
+        display: none;
+    }
+}
