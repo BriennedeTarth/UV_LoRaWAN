@@ -42,11 +42,12 @@ $data = json_decode($mensaje);
   //Crear variable aux
   $temp_hum = $data->sensor;
   $temp_hum_l=explode(" ", $temp_hum);
-  $temperatura=trim($temp_hum_l[0],"Temperatura=");
-  $temperatura=trim($temperatura,"°C");
-  $humedad=trim($temp_hum_l[1],"Humedad=");
-  $humedad=trim($humedad,"%");
-  $uv=trim($temp_hum_l[2],"UV=");
+  $temperatura=trim($temp_hum_l[0],"UV Level=");
+  $temperatura=explode("'\'",$temperatura);
+
+  //$humedad=trim($temp_hum_l[1],"Humedad=");
+  //$humedad=trim($humedad,"%");
+  //$uv=trim($temp_hum_l[2],"UV Level=");
   //Crear una variable auxiliar
   $date_time =  $data->tiempo;
   //Eliminar el contenido despues del .
@@ -59,9 +60,9 @@ $data = json_decode($mensaje);
   
   $datos_separados = array(
     "device_id" => $data->device_id,
-    "temperature" =>$temperatura,
-    "humidity"=>$humedad,
-    "UV"=>$uv,
+   // "temperature" =>$temperatura,
+    //"humidity"=>$humedad,
+    "UV"=>$temperatura[0],
     "date" => $date,
     "time" => $time
   );
