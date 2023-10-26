@@ -47,7 +47,7 @@ $data = json_decode($mensaje);
   //Crear variable aux
   $payload = $data->sensor;
   $uv=trim($payload,"UV Level=");
-  $UVlevel=explode("\\",$uv);
+  $UVlevel=explode("\0",$uv);
 
   //$humedad=trim($temp_hum_l[1],"Humedad=");
   //$humedad=trim($humedad,"%");
