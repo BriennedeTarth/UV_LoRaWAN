@@ -61,7 +61,7 @@ $data = json_decode($mensaje);
     "device_id" => $data->device_id,
    // "temperature" =>$temperatura,
     //"humidity"=>$humedad,
-    "UV"=>$UVlevel[0],
+    "UV"=>$UVlevel[1],
     "date" => $date,
     "time" => $time
   );
