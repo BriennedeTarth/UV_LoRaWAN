@@ -40,10 +40,9 @@ function separarmensaje($mensaje)
 //{ "device_id": "4e-4f-4d-42-52-45-31-32", "sensor": "Temperatura=26.70°C Humedad=34.00% UV=1" , "tiempo": "2023-06-23T19:29:42.152605Z" }
 $data = json_decode($mensaje);
   //Crear variable aux
-  $temp_hum = $data->sensor;
-  $temp_hum_l=explode(" ", $temp_hum);
-  $temperatura=trim($temp_hum_l[0],"UV Level=");
-  $temperatura=explode("'\'",$temperatura);
+  $payload = $data->sensor;
+  $uv=trim($payload,"UV Level=");
+  $UVlevel=explode("'\'",$uv);
 
   //$humedad=trim($temp_hum_l[1],"Humedad=");
   //$humedad=trim($humedad,"%");
@@ -62,7 +61,7 @@ $data = json_decode($mensaje);
     "device_id" => $data->device_id,
    // "temperature" =>$temperatura,
     //"humidity"=>$humedad,
-    "UV"=>$temperatura[0],
+    "UV"=>$UVlevel[0],
     "date" => $date,
     "time" => $time
   );
