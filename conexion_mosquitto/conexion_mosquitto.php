@@ -64,7 +64,7 @@ $data = json_decode($mensaje);
   
   $datos_separados = array(
     "device_id" => $data->device_id,
-    "UV"=>$UVlevel[1],
+    "UV"=>$UVlevel[0],
     "date" => $date,
     "time" => $time
   );
