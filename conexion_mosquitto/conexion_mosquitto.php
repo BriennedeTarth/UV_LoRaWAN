@@ -32,6 +32,8 @@ function conectar()
     
     if ($respuesta->getInsertedCount() > 0) {
       echo "Datos correctamente almacenados\n";
+    }else{
+      echo "error";
     }
 
     flush();
