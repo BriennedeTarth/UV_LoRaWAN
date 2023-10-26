@@ -26,7 +26,10 @@ function conectar()
     $mensaje = $mqtt->subscribeAndWaitForMessage('demo', 0);
     $mqtt->close();
     $datos = separarmensaje($mensaje);
-    $respuesta = $con->insertardatos($datos);
+    if (is_int($datos["UV"])){
+      $respuesta = $con->insertardatos($datos);
+    }
+    
     if ($respuesta->getInsertedCount() > 0) {
       echo "Datos correctamente almacenados\n";
     }
