@@ -50,11 +50,11 @@ function separarmensaje($mensaje)
   $uv = trim($payload, "UV Level=");
   $UVlevel = explode("\0", $uv);
   try {
-    echo "dato 0 a" . $UVlevel[0];
-    echo "dato 1 a" . $UVlevel[1];
-    $UVlevel[0] = (int) $UVlevel[0];
-    echo "dato 0 d" . $UVlevel[0];
-    echo "dato 1 d" . $UVlevel[1];
+    if (is_array($UVlevel)) {
+      $UVlevel[0] = (int) $UVlevel[0];
+    } else {
+      echo "no es array puto";
+    }
   } catch (TypeError $e) {
     $UVlevel[0] = -1;
   }
