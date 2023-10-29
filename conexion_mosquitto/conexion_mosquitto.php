@@ -32,7 +32,7 @@ function conectar()
     }
     
     if ($respuesta->getInsertedCount() > 0) {
-      echo "Datos correctamente almacenados:"+$datos["UV"]+"\n";
+      echo "Datos correctamente almacenados:".$datos["UV"]."\n";
     }else{
       echo "error";
     }
