@@ -26,10 +26,10 @@ function conectar()
     $mensaje = $mqtt->subscribeAndWaitForMessage('demo', 0);
     $mqtt->close();
     $datos = separarmensaje($mensaje);
-    //if ($datos["UV"]!=null){
+    if ($datos["UV"]>=0){
       echo gettype($datos["UV"]);
       $respuesta = $con->insertardatos($datos);
-    //}
+    }
     
     if ($respuesta->getInsertedCount() > 0) {
       echo "Datos correctamente almacenados\n";
@@ -49,7 +49,12 @@ $data = json_decode($mensaje);
   $payload = $data->sensor;
   $uv=trim($payload,"UV Level=");
   $UVlevel=explode("\0",$uv);
-
+  try{
+  $UVlevel[0]=(int) $UVlevel[0];
+  }
+  catch(TypeError $e){
+    $UVlevel[0]=-1;
+  }
   //$humedad=trim($temp_hum_l[1],"Humedad=");
   //$humedad=trim($humedad,"%");
   //$uv=trim($temp_hum_l[2],"UV Level=");
