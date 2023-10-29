@@ -27,7 +27,7 @@ function conectar()
     $mqtt->close();
     $datos = separarmensaje($mensaje);
     if ($datos["UV"] >= 0) {
-      echo "Tipo antes de guardar ".gettype($datos["UV"])."\n";
+      //echo "Tipo antes de guardar ".gettype($datos["UV"])."\n";
       $respuesta = $con->insertardatos($datos);
       if ($respuesta->getInsertedCount() > 0) {
         echo "Datos correctamente almacenados:" . $datos["UV"] . "\n";
@@ -59,10 +59,8 @@ function separarmensaje($mensaje)
   }
   //Crear una variable auxiliar
   $date_time =  $data->tiempo;
-  //Eliminar el contenido despues del .
-  $date_time_l = explode(".", $date_time);
   //De la primera parte separla donde existe una T-------------------------------------------------------------
-  $date_time_s = explode("T", $date_time_l[0]);
+  $date_time_s = explode("T", $date_time);
   //Guardar fecha y hora con fomatos adecuados
   $date = date("d-m-Y", strtotime($date_time_s[0]));
   $time = date("H:i", strtotime($date_time_s[1]));
