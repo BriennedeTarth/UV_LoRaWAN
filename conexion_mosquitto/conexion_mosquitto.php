@@ -27,7 +27,7 @@ function conectar()
     $mqtt->close();
     $datos = separarmensaje($mensaje);
     if ($datos["UV"] >= 0) {
-      echo gettype($datos["UV"]);
+      echo "Tipo antes de guardar ".gettype($datos["UV"])."\n";
       $respuesta = $con->insertardatos($datos);
     }
 
@@ -51,7 +51,7 @@ function separarmensaje($mensaje)
   $UVlevel = explode("\0", $uv);
   echo "este es el tipo antes de cathc ".is_array($UVlevel);
   try {
-    if (is_array($UVlevel)) {
+    if (count($UVlevel)>1) {
       $UVlevel[0] = (int) $UVlevel[0];
     } else {
       echo "no es array puto";
