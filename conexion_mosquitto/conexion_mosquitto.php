@@ -29,13 +29,14 @@ function conectar()
     if ($datos["UV"] >= 0) {
       echo "Tipo antes de guardar ".gettype($datos["UV"])."\n";
       $respuesta = $con->insertardatos($datos);
+      if ($respuesta->getInsertedCount() > 0) {
+        echo "Datos correctamente almacenados:" . $datos["UV"] . "\n";
+      } else {
+        echo "error";
+      }
     }
 
-    if ($respuesta->getInsertedCount() > 0) {
-      echo "Datos correctamente almacenados:" . $datos["UV"] . "\n";
-    } else {
-      echo "error";
-    }
+    
 
     flush();
   }
