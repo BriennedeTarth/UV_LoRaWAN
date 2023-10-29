@@ -26,14 +26,14 @@ function conectar()
     $mensaje = $mqtt->subscribeAndWaitForMessage('demo', 0);
     $mqtt->close();
     $datos = separarmensaje($mensaje);
-    if ($datos["UV"]>=0){
+    if ($datos["UV"] >= 0) {
       echo gettype($datos["UV"]);
       $respuesta = $con->insertardatos($datos);
     }
-    
+
     if ($respuesta->getInsertedCount() > 0) {
-      echo "Datos correctamente almacenados:".$datos["UV"]."\n";
-    }else{
+      echo "Datos correctamente almacenados:" . $datos["UV"] . "\n";
+    } else {
       echo "error";
     }
 
@@ -43,17 +43,20 @@ function conectar()
 
 function separarmensaje($mensaje)
 {
-//{ "device_id": "4e-4f-4d-42-52-45-31-32", "sensor": "UV Level=0\u0000" , "tiempo": "2023-06-23T19:29:42.152605Z" }
-$data = json_decode($mensaje);
+  //{ "device_id": "4e-4f-4d-42-52-45-31-32", "sensor": "UV Level=0\u0000" , "tiempo": "2023-06-23T19:29:42.152605Z" }
+  $data = json_decode($mensaje);
   //Crear variable aux
   $payload = $data->sensor;
-  $uv=trim($payload,"UV Level=");
-  $UVlevel=explode("\0",$uv);
-  try{
-  $UVlevel[0]=(int) $UVlevel[0];
-  }
-  catch(TypeError $e){
-    $UVlevel[0]=-1;
+  $uv = trim($payload, "UV Level=");
+  $UVlevel = explode("\0", $uv);
+  try {
+    echo "dato 0 a" . $UVlevel[0];
+    echo "dato 1 a" . $UVlevel[1];
+    $UVlevel[0] = (int) $UVlevel[0];
+    echo "dato 0 d" . $UVlevel[0];
+    echo "dato 1 d" . $UVlevel[1];
+  } catch (TypeError $e) {
+    $UVlevel[0] = -1;
   }
   //$humedad=trim($temp_hum_l[1],"Humedad=");
   //$humedad=trim($humedad,"%");
@@ -61,16 +64,16 @@ $data = json_decode($mensaje);
   //Crear una variable auxiliar
   $date_time =  $data->tiempo;
   //Eliminar el contenido despues del .
-  $date_time_l=explode(".", $date_time);
+  $date_time_l = explode(".", $date_time);
   //De la primera parte separla donde existe una T-------------------------------------------------------------
-  $date_time_s=explode("T", $date_time_l[0]);
+  $date_time_s = explode("T", $date_time_l[0]);
   //Guardar fecha y hora con fomatos adecuados
-  $date=date("d-m-Y",strtotime($date_time_s[0]));
-  $time=date("H:i",strtotime($date_time_s[1]));
-  
+  $date = date("d-m-Y", strtotime($date_time_s[0]));
+  $time = date("H:i", strtotime($date_time_s[1]));
+
   $datos_separados = array(
     "device_id" => $data->device_id,
-    "UV"=>$UVlevel[0],
+    "UV" => $UVlevel[0],
     "date" => $date,
     "time" => $time
   );
@@ -85,4 +88,3 @@ while (ob_get_level()) {
 while (true) {
   conectar();
 }
-?>
