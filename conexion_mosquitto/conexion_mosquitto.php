@@ -49,6 +49,7 @@ function separarmensaje($mensaje)
   $payload = $data->sensor;
   $uv = trim($payload, "UV Level=");
   $UVlevel = explode("\0", $uv);
+  echo "este es el tipo antes de cathc ".is_array($UVlevel);
   try {
     if (is_array($UVlevel)) {
       $UVlevel[0] = (int) $UVlevel[0];
