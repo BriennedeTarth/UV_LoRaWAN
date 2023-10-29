@@ -50,8 +50,6 @@ function separarmensaje($mensaje)
   $payload = $data->sensor;
   $uv = trim($payload, "UV Level=");
   $UVlevel = explode("\0", $uv);
-  $yes = array('this', 'is', 'an array');
-  echo "ejemplini ".is_array($yes);
   echo "este es el tipo antes de cathc ".is_array($UVlevel);
   try {
     if (count($UVlevel)>1) {
@@ -60,7 +58,7 @@ function separarmensaje($mensaje)
       echo "no es array puto";
     }
   } catch (TypeError $e) {
-    $UVlevel[0] = -1;
+    $UVlevel[0] = -1256;
   }
   //$humedad=trim($temp_hum_l[1],"Humedad=");
   //$humedad=trim($humedad,"%");
