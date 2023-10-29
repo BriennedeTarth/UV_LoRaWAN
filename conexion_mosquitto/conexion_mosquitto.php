@@ -50,19 +50,13 @@ function separarmensaje($mensaje)
   $payload = $data->sensor;
   $uv = trim($payload, "UV Level=");
   $UVlevel = explode("\0", $uv);
-  echo "este es el tipo antes de cathc ".is_array($UVlevel);
   try {
     if (count($UVlevel)>1) {
       $UVlevel[0] = (int) $UVlevel[0];
-    } else {
-      echo "no es array puto";
-    }
+    } 
   } catch (TypeError $e) {
     $UVlevel[0] = -1256;
   }
-  //$humedad=trim($temp_hum_l[1],"Humedad=");
-  //$humedad=trim($humedad,"%");
-  //$uv=trim($temp_hum_l[2],"UV Level=");
   //Crear una variable auxiliar
   $date_time =  $data->tiempo;
   //Eliminar el contenido despues del .
