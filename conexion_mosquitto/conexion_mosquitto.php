@@ -27,6 +27,7 @@ function conectar()
     $mqtt->close();
     $datos = separarmensaje($mensaje);
     //if ($datos["UV"]!=null){
+      echo gettype($datos["UV"]);
       $respuesta = $con->insertardatos($datos);
     //}
     
@@ -42,7 +43,7 @@ function conectar()
 
 function separarmensaje($mensaje)
 {
-//{ "device_id": "4e-4f-4d-42-52-45-31-32", "sensor": "Temperatura=26.70°C Humedad=34.00% UV=1" , "tiempo": "2023-06-23T19:29:42.152605Z" }
+//{ "device_id": "4e-4f-4d-42-52-45-31-32", "sensor": "UV Level=0\u0000" , "tiempo": "2023-06-23T19:29:42.152605Z" }
 $data = json_decode($mensaje);
   //Crear variable aux
   $payload = $data->sensor;
@@ -56,7 +57,7 @@ $data = json_decode($mensaje);
   $date_time =  $data->tiempo;
   //Eliminar el contenido despues del .
   $date_time_l=explode(".", $date_time);
-  //De la primera parte separla donde existe una T
+  //De la primera parte separla donde existe una T-------------------------------------------------------------
   $date_time_s=explode("T", $date_time_l[0]);
   //Guardar fecha y hora con fomatos adecuados
   $date=date("d-m-Y",strtotime($date_time_s[0]));
