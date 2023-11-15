@@ -33,7 +33,7 @@
    </section>
    <section class="copyrigth">
       <h2>Smart Lab</h2>
-      Copyrigth &copy; Brandon Campoverde 2023
+      <!--Copyrigth &copy; Brandon Campoverde 2023-->
    </section>
    <!--Importación de funciones js-->
    <script src="../../../js/functions.js"></script>

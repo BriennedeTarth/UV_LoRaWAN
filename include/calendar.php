@@ -187,7 +187,7 @@ $dias = array(
         mostrarCalendario(mesActual, añoActual);
     </script>
     <button onclick="guardararchivoCSV(diasSeleccionados,'<?php echo $coleccion ?>','<?php echo $metrica ?>')"
-        class="export-csv">Exportar
+        class="export-csv">Export
         CSV</button>
 </body>
 
